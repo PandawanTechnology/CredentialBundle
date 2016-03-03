@@ -1,10 +1,10 @@
-# PandawanTechnology Credential Bundle
-This symfony bundle allows you to quickly visualize your application role definitions.
+# PandawanTechnologyRoleVizBundle
+This Symfony bundle allows you to quickly visualize your application role definitions.
 
 ## Installation
 From your project root directory :
 ```bash
-$ composer require --dev pandawan-technology/credential-bundle
+$ composer require --dev pandawan-technology/role-viz-bundle
 ```
 Then enable the bundle in your application in your `app/AppKernel.php` file:
 ```php
@@ -14,10 +14,10 @@ Then enable the bundle in your application in your `app/AppKernel.php` file:
         
         if ($this->getEnvironment() == 'dev') {
             // ... your dev bundles
-            $bundles[] = new PandawanTechnology\CredentialBundle\PandawanTechnologyCredentialBundle();
+            $bundles[] = new PandawanTechnology\RoleVizBundle\PandawanTechnologyRoleVizBundle();
         }
     }
 
 ```
 
-And voilà. The credentials will now be available for visualisation in your web profiler.
+And voilà. The roles will now be available for visualisation in your web profiler.
