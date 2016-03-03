@@ -2,20 +2,16 @@ language: php
 
 sudo: false
 
-matrix:
-    include:
-        - php: hhvm
-        - php: 5.4
-        - php: 5.5
-        - php: 5.6
-          env: deps=low
-        - php: 5.6
-          env: deps=high
-        - php: 7.0
-        - php: nightly
-    allow_failures:
-        - php: nightly
-    fast_finish: true
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhmv
 
-before_install:
-    - composer install
+env:
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest"
+    - PREFER_LOWEST=""
+
+before_script:
+  - composer update --prefer-source $PREFER_LOWEST

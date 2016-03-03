@@ -14,6 +14,10 @@ class PandawanTechnologyRoleVizExtension extends Extension
      */
     public function load(array $config, ContainerBuilder $container)
     {
+        if (!$container->hasParameter('security.role_hierarchy.roles')) {
+            return;
+        }
+
         $template = 'PandawanTechnologyRoleVizBundle:Profiler:template_28.html.twig';
 
         if (-1 == version_compare(Kernel::VERSION, '2.8')) {
