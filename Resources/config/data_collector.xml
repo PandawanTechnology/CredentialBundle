@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="pandawan_technology.credential.credential_collector"
+                 class="PandawanTechnology\CredentialBundle\DataCollector\CredentialDataCollector" public="false">
+            <tag name="data_collector" template="@PandawanTechnologyCredential/Profiler/template.html.twig" id="credential" />
+
+            <argument>%security.role_hierarchy.roles%</argument>
+        </service>
+
+    </services>
+</container>
