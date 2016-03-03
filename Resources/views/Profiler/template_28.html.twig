@@ -17,15 +17,26 @@
         <span class="icon">
             {{ include('@Security/Collector/icon.svg') }}
         </span>
-        <strong>Credentials</strong>
+        <strong>Roles</strong>
     </span>
 {% endblock %}
 
 {% block panel %}
-    <h2>Credentials</h2>
-    <ul>
-        {% for name, children in collector.sorted %}
-            {{ include('PandawanTechnologyRoleVizBundle:Profiler:_role.html.twig', {'exclude_self': false}) }}
-        {% endfor %}
-    </ul>
+    <h2>Roles defined</h2>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col" class="key">Name</th>
+                <th scope="col" class="key">Children</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name, children in collector.sorted %}
+                <tr>
+                    <td class="font-normal text-small text-bold" id="#role-{{ name }}">{{ name }}</td>
+                    <td class="font-normal text-small">{{ include('PandawanTechnologyRoleVizBundle:Profiler:_role.html.twig', {'exclude_self': true}) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
