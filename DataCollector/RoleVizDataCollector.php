@@ -1,12 +1,12 @@
 <?php
 
-namespace PandawanTechnology\CredentialBundle\DataCollector;
+namespace PandawanTechnology\RoleVizBundle\DataCollector;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface;
 
-class CredentialDataCollector implements DataCollectorInterface
+class RoleVizDataCollector implements DataCollectorInterface
 {
     /**
      * @var array
@@ -14,7 +14,7 @@ class CredentialDataCollector implements DataCollectorInterface
     protected $credentials;
 
     /**
-     * @param array           $credentials
+     * @param array $credentials
      */
     public function __construct(array $credentials = [])
     {
@@ -31,14 +31,14 @@ class CredentialDataCollector implements DataCollectorInterface
 
     /**
      * @codeCoverageIgnore
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -72,6 +72,7 @@ class CredentialDataCollector implements DataCollectorInterface
                 }
 
                 $result[$name][$parentName] = $result[$parentName];
+                ksort($result[$name]);
 
                 if (!isset($credentials[$parentName])) {
                     continue;
@@ -80,6 +81,8 @@ class CredentialDataCollector implements DataCollectorInterface
                 $result = $this->sort($credentials[$parentName], $result);
             }
         }
+
+        ksort($result);
 
         return $result;
     }

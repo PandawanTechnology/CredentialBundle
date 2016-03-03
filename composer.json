@@ -1,8 +1,8 @@
 {
-    "name": "pandawan-technology/credential-bundle",
+    "name": "pandawan-technology/role-viz-bundle",
     "type": "symfony-bundle",
     "license": "MIT",
-    "description": "Symfony app credentials visualisation",
+    "description": "Symfony roles visualization",
     "authors": [
         {
             "name": "Xavier Coureau",
@@ -15,6 +15,6 @@
         "symfony/security-bundle": ">=2.2,<3.1"
     },
     "autoload": {
-        "psr-4": { "PandawanTechnology\\CredentialBundle\\": "" }
+        "psr-4": { "PandawanTechnology\\RoleVizBundle\\": "" }
     }
 }

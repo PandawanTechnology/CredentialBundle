@@ -1,0 +1,6 @@
+{% if not exclude_self %}<a href="#role-{{ name }}">{{ name }}</a><br/>{% endif %}
+{% if children|length %}
+    {% for child_name, children_collection in children %}
+        {{ include('PandawanTechnologyRoleVizBundle:Profiler:_role.html.twig', {'name': child_name, 'children': children_collection, 'exclude_self': false}) }}
+    {% endfor %}
+{% endif %}
